@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 07 | Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body class="app-body">
+
+    <header class="navbar">
+        <div class="brand">
+            <div class="logo-small">LB</div>
+            <div>
+                <strong>LoadBalance</strong>
+                <span>LAB 07</span>
+            </div>
+        </div>
+
+        <div class="user-menu">
+            <div>
+                <strong><%= usuario.nombre %></strong>
+                <span><%= usuario.correo %></span>
+            </div>
+
+            <a href="/logout" class="btn-logout">
+                Cerrar sesión
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <section class="welcome">
+            <div>
+                <span class="section-label">PANEL PRINCIPAL</span>
+                <h1>Bienvenido, <%= usuario.nombre %></h1>
+                <p>
+                    Administración centralizada de la aplicación
+                    monolítica del Laboratorio 07.
+                </p>
+            </div>
+
+            <a href="/productos" class="btn-primary btn-link">
+                Gestionar productos →
+            </a>
+        </section>
+
+        <section class="stats">
+
+            <article class="stat-card">
+                <span class="stat-icon">▦</span>
+                <div>
+                    <p>Productos registrados</p>
+                    <h2><%= totalProductos %></h2>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">□</span>
+                <div>
+                    <p>Stock disponible</p>
+                    <h2><%= totalStock %></h2>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">✓</span>
+                <div>
+                    <p>Estado del sistema</p>
+                    <h2 class="status-online">ONLINE</h2>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="architecture-card">
+
+            <div>
+                <span class="section-label">ARQUITECTURA</span>
+                <h2>Aplicación Monolítica</h2>
+
+                <p>
+                    Login, sesiones, lógica de negocio y CRUD se
+                    encuentran integrados dentro de una sola aplicación.
+                </p>
+            </div>
+
+            <div class="architecture-flow">
+                <div>Usuario</div>
+                <span>→</span>
+                <div>Load Balancer</div>
+                <span>→</span>
+                <div>Monolito</div>
+            </div>
+
+        </section>
+
+        <section class="quick-actions">
+
+            <h2>Acciones rápidas</h2>
+
+            <div class="actions-grid">
+
+                <a href="/productos" class="action-card">
+                    <span>▦</span>
+                    <div>
+                        <strong>Ver productos</strong>
+                        <p>Consulta y administra el inventario.</p>
+                    </div>
+                </a>
+
+                <a href="/health" class="action-card">
+                    <span>♥</span>
+                    <div>
+                        <strong>Health Check</strong>
+                        <p>Comprueba el estado de la instancia.</p>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        Laboratorio 07 · Balanceo de Carga · Aplicación Monolítica
+    </footer>
+
+</body>
+</html>
